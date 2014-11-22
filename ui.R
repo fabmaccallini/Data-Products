@@ -30,7 +30,7 @@ shinyUI(fluidPage(
             regardless of the underlying distribution. (source: Wikipedia)"),
         p("The distribution of the sample means has the mean equal to the one of the 
               underlying distribution, and the variance equal to the one of the 
-              underlying distribution divided by the square root of the sample rate."),
+              underlying distribution divided by the square root of the sample size."),
         plotOutput('MyPlot')
         )
     )
