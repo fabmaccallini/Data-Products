@@ -1,4 +1,4 @@
-
+library(markdown)
 shinyServer(
     function(input, output) {
         output$MyPlot = renderPlot({
