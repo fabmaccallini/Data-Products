@@ -2,7 +2,7 @@ Data Products Project
 =============
 
 The application, built as an assignemnt for the Coursera Data Products course, is called ***Play with thte Central Limit Theorem***.
-If you are not familiar with the theorem a quick definition is given in the application.  
+If you are not familiar with the theorem a quick definition is given in the application. A brief desciprion of the applicantion will follow, although we find it very intuitive.
 
 The application offers the opportunity to empirically verify that the sample means are approximatelly normally distributed, for different type of distributions: **Binomial, Exponential, Gamma, Lognormal, Normal, Poisson, Uniform**, and for diffenret sample sizes (from 25 to 1,000). The number of simulations is set to 1,000 but it can be changed (up to 10,000).  
 Sample size and number of simulations were capped in order to avoid ecessive waiting time.  
