@@ -9,6 +9,7 @@ Sample size and number of simulations were capped in order to avoid ecessive wai
 The histogram of the sample means in the main panel is reactive to changes in the distribution type, sample size, and number of simulations. By activating/deactivating the check-box a normal probability density function can be added/removed to/from the histogram.  
 In the side panel we check the *68-95-97.3 rule* for normality, that is to say the intervals of 1, 2, 3 standard deviations away from the mean should cover approximately 68%, 95%, 97.3% of the samples.
 
-The UI.R and server.R can be founf in the GitHub repository: https://github.com/fabmaccallini/Data-Products.  
+The application can be tried at https://fabmaccallini.shinyapps.io/PlayCLT/.  
+The UI.R and server.R can be found in the GitHub repository: https://github.com/fabmaccallini/Data-Products.  
 
 Thank you.
