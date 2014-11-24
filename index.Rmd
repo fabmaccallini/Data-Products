@@ -1,0 +1,66 @@
+---
+title       : Play with the Central Limit Theorem
+subtitle    : a Shiny application for all students
+author      : Fabrizio Maccallini
+job         : Coursera student
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [mathjax, quiz, bootstrap, shiny]        # {mathjax, quiz, bootstrap}
+mode        : standalone # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Some theory first
+
+If you haven't come across the Central Limit Theorem so far in your life, **that's your lucky day**!
+
+*In probability theory, the central limit theorem (CLT) states that, given certain conditions, the arithmetic mean of a sufficiently large number of iterates of independent random variables, each with a well-defined expected value and well-defined variance, will be approximately normally distributed, regardless of the underlying distribution. That is, suppose that a sample is obtained containing a large number of observations, each observation being randomly generated in a way that does not depend on the values of the other observations, and that the arithmetic average of the observed values is computed. If this procedure is performed many times, the central limit theorem says that the computed values of the average will be distributed according to the normal distribution (commonly known as a "bell curve").* (sorurce: [Wikipedia]("http://en.wikipedia.org/wiki/Central_limit_theorem"))  
+
+Feeling speechless? Feeling confused?
+That's what our application is here for...
+
+But before we start, a very important question.
+
+--- &radio
+
+## Very important question
+
+Is the Central Limit Theore valid for any type of distribution?
+
+1. No, only if the distribution is continuous
+2. Yes, always.
+3. No, only if the distribution is discrete
+4. _Yes, as long the distribution's mean and variance are finite._
+
+*** .hint
+Go to the next slide and you will find out
+
+---
+## Example: the Cauchy distribution
+```{r, echo = FALSE}
+samp = 100
+sims = 1000
+loc = 0
+scale = 1
+```
+Let's draw `r samp` samples from a Cauchy distribution, $f(x;x_{0},\gamma ) = \frac{1}{\pi }\left [ \frac{\gamma}{(x + x_{0})^2 + \gamma ^2}  \right ]$, with $x_{0}$ = `r loc` and $\lambda$ = `r scale` for `r sims` times. Now let's see how normal our sample means look.  
+```{r, echo = FALSE, fig.height = 4, fig.width = 4}
+mns = NULL
+for (i in 1 : sims) mns = c(mns, mean(rcauchy(samp)))
+hist(mns, breaks = 100, prob = TRUE, main = expression("Distribution of the sample means"), xlab = "mean(x)", ylab = "Prob[mean(x)]", col = "lightblue")
+curve(dnorm(x, mean(mns), sd(mns)), col = "red", add = TRUE, lwd = 3)
+```
+
+We can see a significant discrepancy between the histogram and the normal distribution (red line), that is because the Cauchy distribution has indefinite mean and variance. The application will only give access to distribution with definite mean and variance.  
+[embedded R code in this page available at https://github.com/fabmaccallini/Data-Products]
+
+---
+## Let's play now
+
+You can find the application at: https://fabmaccallini.shinyapps.io/PlayCLT/  
+The side panel allows you to choose the type of the distribution from a list and the nuber of samples (higher number improves the normality) drawn for each simulation. The number of simulations is customisable also.  
+Once the parameters are set the application will draw instantaneously the distribution of the sample means and the normal distribution (red line).  
+<img height='450' src='panel.png' allign='left'/>
+<img height='450' src='distr.png' allign='right'/>
+    **Have fun!**
